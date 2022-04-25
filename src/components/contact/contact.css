@@ -1,3 +1,21 @@
 .contact{
+    padding: 5rem 1rem;
     background: black;
+    color: white;
+}
+.contact__button{
+    background: transparent !important;
+    color: white !important;
+    border-radius: 2rem !important;
+    transition: all .3s;
+}
+.contact__button:hover{
+    background: white !important;
+    color: var(--text) !important
+}
+.contact__content{
+    gap: 2rem
+}
+.contact__header-title{
+    font-size: 4rem;
 }

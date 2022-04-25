@@ -1,5 +1,5 @@
 .footer{
-    background: white;
+    background: white !important;
 }
 .footer__social{
     box-sizing: border-box;
@@ -7,4 +7,7 @@
 }
 .footer__social a{
     color: var(--text);
+}
+.contact__content-text{
+    line-height: 1;
 }
