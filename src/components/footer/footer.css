@@ -1,0 +1,10 @@
+.footer{
+    background: white;
+}
+.footer__social{
+    box-sizing: border-box;
+    padding: 2rem;
+}
+.footer__social a{
+    color: var(--text);
+}
