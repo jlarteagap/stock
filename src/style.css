@@ -5,3 +5,7 @@
 body{
     color: var(--text);
 }
+
+.modal__card{
+    background: white;
+}

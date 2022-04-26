@@ -1,7 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './contact.css'
+import { Modal } from '../utils/Modal'
 
 const Contact = () => {
+  const [modal, setModal] = useState(false)
+
+  const toggleModal = () => {
+    setModal(!modal)
+  }
   return (
     <div className="contact">
       <div className="container">
@@ -19,12 +25,16 @@ const Contact = () => {
             </p>
           </div>
           <div className="">
-            <button className="contact__button button is-outlined is-large">
+            <button
+              className="contact__button button is-outlined is-large"
+              onClick={toggleModal}
+            >
               Contáctanos
             </button>
           </div>
         </div>
       </div>
+      <Modal modal={modal} toggleModal={toggleModal} />
     </div>
   )
 }
