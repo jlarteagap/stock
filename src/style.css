@@ -1,5 +1,7 @@
 :root{
-    --text: #808080
+    --primary: #ff0000;
+    --secondary: #1e1e1e;
+    --text: #808080;
 }
 
 body{

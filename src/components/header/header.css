@@ -1,0 +1,13 @@
+.header{
+    background-color: transparent;
+}
+.header__brand{
+    background: transparent;
+}
+.header__menu-item{
+    background-color: transparent !important;
+    color: var(--secondary) !important;
+}
+.header__menu-item:hover{
+    background-color: transparent !important;
+}
