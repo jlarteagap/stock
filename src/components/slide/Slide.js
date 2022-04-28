@@ -1,11 +1,16 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import './slide.css'
 import landing from '../../assets/landing.png'
 import { Slideshow } from './Slideshow'
+import useMenu from '../../hooks/useMenu'
 const Slide = () => {
+  const slideRef = useRef()
+  if (slideRef.current) {
+    useMenu('#slide', 'slide')
+  }
   return (
     <>
-      <div className="slide">
+      <div className="slide" id="#" ref={slideRef}>
         <Slideshow />
         <div className="slide__content container is-flex is-align-items-center">
           <img

@@ -22,8 +22,8 @@
 .header__navbar a:hover{
     color: var(--primary) !important;
 }
-.header__navbar .isActive{
-    color: var(--primary);
+.header__menu-item + .isActive, .header__navbar-white + .isActive, .header__navbar .isActive{
+    color: var(--primary) !important;
 }
 .header__navbar-white{
     background-color: white;

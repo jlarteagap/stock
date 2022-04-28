@@ -1,15 +1,46 @@
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import './contact.css'
 import { Modal } from '../utils/Modal'
+import useData from '../../hooks/useData'
 
 const Contact = () => {
+  const { menuObserver } = useData()
+
+  const contactRef = useRef()
   const [modal, setModal] = useState(false)
+  const [contactVisible, setContactVisible] = useState('')
+  const [entryObserver, setEntryObserver] = useState(false)
 
   const toggleModal = () => {
     setModal(!modal)
   }
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      entries => {
+        const entry = entries[0]
+        setEntryObserver(entry.isIntersecting)
+        if (entryObserver) {
+          setContactVisible('#contacto')
+        }
+      },
+      {
+        rootMargin: '0px 0px 0px',
+        root: null,
+        threshold: 0.5
+      }
+    )
+    observer.observe(contactRef.current)
+  }, [entryObserver])
+
+  useEffect(() => {
+    if (entryObserver) {
+      menuObserver(contactVisible)
+    }
+  }, [entryObserver, contactVisible])
+
   return (
-    <div className="contact" id="contacto">
+    <div className="contact" id="contacto" ref={contactRef}>
       <div className="container">
         <div className="contact__header">
           <h2 className="contact__header-title has-text-weight-bold">
