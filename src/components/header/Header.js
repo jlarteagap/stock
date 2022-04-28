@@ -1,30 +1,38 @@
-import React from 'react'
+import React, { useState } from 'react'
+import logoStock from '../../assets/stock__logo.png'
+import logoStockW from '../../assets/stock__logo_w.png'
 import './header.css'
+import { Menu } from './Menu'
+import useData from '../../hooks/useData'
 
 const Header = () => {
+  const { company } = useData()
+  const [menuSize, setMenuSize] = useState(false)
+
+  const changeNavbarColor = () => {
+    if (window.scrollY >= 80) {
+      setMenuSize(true)
+    } else {
+      setMenuSize(false)
+    }
+  }
+  window.addEventListener('scroll', changeNavbarColor)
+
   return (
     <div className="header">
-      <nav className="navbar is-fixed-top" role="navigation">
-        <div className="header__brand navbar-brand">
-          <a className="navbar-item" href="https://bulma.io">
-            <img
-              src="https://bulma.io/images/bulma-logo.png"
-              width="112"
-              height="28"
-            />
-          </a>
-        </div>
-
-        <div className="header__menu navbar-menu">
-          <div className="navbar-start">
-            <a className="header__menu-item navbar-item has-text-weight-bold">
-              Home
-            </a>
-
-            <a className="header__menu-item navbar-item has-text-weight-bold">
-              Documentation
+      <nav
+        className={`${
+          menuSize ? 'header__navbar-white' : 'header__navbar'
+        } navbar is-fixed-top`}
+        role="navigation"
+      >
+        <div className="container is-widescreen">
+          <div className="header__brand navbar-brand">
+            <a className="navbar-item" href={company.url}>
+              <img src={menuSize ? logoStock : logoStockW} width="200" />
             </a>
           </div>
+          <Menu />
         </div>
       </nav>
     </div>

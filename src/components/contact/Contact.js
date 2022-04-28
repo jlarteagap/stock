@@ -9,7 +9,7 @@ const Contact = () => {
     setModal(!modal)
   }
   return (
-    <div className="contact">
+    <div className="contact" id="contacto">
       <div className="container">
         <div className="contact__header">
           <h2 className="contact__header-title has-text-weight-bold">
