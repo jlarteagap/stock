@@ -1,13 +1,38 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import './slide.css'
 import landing from '../../assets/landing.png'
 import { Slideshow } from './Slideshow'
-import useMenu from '../../hooks/useMenu'
+import useData from '../../hooks/useData'
+
 const Slide = () => {
+  const { menuObserver } = useData()
   const slideRef = useRef()
-  if (slideRef.current) {
-    useMenu('#slide', 'slide')
-  }
+  const [slideVisible, setSlideVisible] = useState('')
+  const [entryObserver, setEntryObserver] = useState(false)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      entries => {
+        const entry = entries[0]
+        setEntryObserver(entry.isIntersecting)
+        if (entryObserver) {
+          setSlideVisible('#')
+        }
+      },
+      {
+        rootMargin: '0px 0px 0px',
+        root: null,
+        threshold: 0.5
+      }
+    )
+    observer.observe(slideRef.current)
+  }, [entryObserver])
+
+  useEffect(() => {
+    if (entryObserver) {
+      menuObserver(slideVisible)
+    }
+  }, [entryObserver, slideVisible])
   return (
     <>
       <div className="slide" id="#" ref={slideRef}>
