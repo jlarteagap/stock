@@ -1,8 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import './download.css'
-import icon1 from '../../assets/iconos1.png'
-import icon2 from '../../assets/iconos2.png'
-import icon3 from '../../assets/iconos3.png'
+import { getServices } from '../../api/Api'
 
 import useData from '../../hooks/useData'
 const Download = () => {
@@ -10,6 +8,19 @@ const Download = () => {
   const downloadRef = useRef()
   const [downloadVisible, setDownloadVisible] = useState('')
   const [entryObserver, setEntryObserver] = useState(false)
+
+  const [download, setDownload] = useState([])
+
+  useEffect(() => {
+    ;(async () => {
+      try {
+        const res = await getServices('descargar')
+        setDownload(res.records)
+      } catch (error) {
+        console.log(error)
+      }
+    })()
+  }, [])
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -37,30 +48,23 @@ const Download = () => {
 
   return (
     <>
-      <div className="download" id="descargar" ref={downloadRef}>
-        <div className="container">
-          <div className="download__content is-flex is-justify-content-space-around">
-            <div className="download__content-item has-text-centered">
-              <img src={icon1} alt="Descarga App" />
-              <p className="has-text-weight-bold">
-                Dale clic en el botón descargar app
-              </p>
-            </div>
-            <div className="download__content-item has-text-centered">
-              <img src={icon2} alt="Descarga App" />
-              <p className="has-text-weight-bold">
-                Abre la aplicación y regístrate para acceder a los módulos
-              </p>
-            </div>
-            <div className="download__content-item has-text-centered">
-              <img src={icon3} alt="Descarga App" />
-              <p className="has-text-weight-bold">
-                Si eres proveedor ingresa tus productos y datos para vender
-              </p>
+      {download.length > 0 && (
+        <div className="download" id="descargar" ref={downloadRef}>
+          <div className="container">
+            <div className="download__content is-flex is-justify-content-space-around">
+              {download.map(item => {
+                return (
+                  <div
+                    key={item.ID_CONTENIDO}
+                    dangerouslySetInnerHTML={{ __html: item.CONTENIDO }}
+                    className=""
+                  />
+                )
+              })}
             </div>
           </div>
         </div>
-      </div>
+      )}
     </>
   )
 }

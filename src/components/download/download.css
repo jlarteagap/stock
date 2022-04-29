@@ -1,4 +1,18 @@
 .download{padding: 5rem 1rem;}
-.download__content-item{
+
+.how__cards{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    text-align: center;
+}
+.how__card{
     max-width: 350px;
+}
+.how__card img{
+    max-width: 200px;
+}
+.how__card p{
+    font-weight: bold;
 }
