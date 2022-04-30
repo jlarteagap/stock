@@ -17,7 +17,6 @@ const Download = () => {
       try {
         const res = await getServices('descargar')
         setDownload(res.records)
-        console.log(res.records)
       } catch (error) {
         console.log(error)
       }

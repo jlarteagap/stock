@@ -1,0 +1,29 @@
+.modules{
+    padding: 5rem 1rem;
+}
+
+.module__slide{
+    padding: 5rem;
+    gap: 1rem;
+}
+.module__slide-media, .module__slide-content{
+    width: 50%;
+}
+.module__slide-media{
+    padding: 0 5rem;
+}
+.module__slide-title{
+    color: #4d4d4d !important;
+}
+.module__slide-desc p{
+    margin-top: 1rem;
+}
+.splide__arrow{
+    background: transparent !important;
+    opacity: 1 !important;
+}
+.splide__arrow svg{
+    fill: var(--primary);
+    width: 60px;
+    height: 60px;
+}
