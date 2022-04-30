@@ -4,11 +4,12 @@ import { getServices } from '../../api/Api'
 
 import useData from '../../hooks/useData'
 const Download = () => {
-  const { menuObserver } = useData()
+  const { menuObserver, updateDownload } = useData()
   const downloadRef = useRef()
   const [downloadVisible, setDownloadVisible] = useState('')
   const [entryObserver, setEntryObserver] = useState(false)
 
+  // eslint-disable-next-line no-unused-vars
   const [download, setDownload] = useState([])
 
   useEffect(() => {
@@ -46,10 +47,16 @@ const Download = () => {
     }
   }, [entryObserver, downloadVisible])
 
+  useEffect(() => {
+    if (download.length > 0) {
+      updateDownload()
+    }
+  }, [download])
+
   return (
-    <>
+    <div ref={downloadRef}>
       {download.length > 0 && (
-        <div className="download" id="descargar" ref={downloadRef}>
+        <div className="download" id="descargar">
           <div className="container">
             <div className="download__content is-flex is-justify-content-space-around">
               {download.map(item => {
@@ -65,7 +72,7 @@ const Download = () => {
           </div>
         </div>
       )}
-    </>
+    </div>
   )
 }
 export default Download

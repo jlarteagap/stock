@@ -8,13 +8,15 @@ export const AppContext = createContext({
 
 export function AppProvider({ children }) {
   const [company, setCompany] = useState([])
-  // eslint-disable-next-line no-unused-vars
   const [menuActive, setMenuActive] = useState('#')
+  const [downloadContext, setDownloadContext] = useState(false)
 
   const menuObserver = menu => {
     setMenuActive(menu)
   }
-
+  const updateDownload = () => {
+    setDownloadContext(!downloadContext)
+  }
   useEffect(() => {
     const url = `${API_HOST}/empresa/?a=${A}&e=${E}&ub=${UB}`
     fetch(url)
@@ -25,7 +27,9 @@ export function AppProvider({ children }) {
   const value = {
     company,
     menuActive,
-    menuObserver
+    menuObserver,
+    downloadContext,
+    updateDownload
   }
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>
