@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react'
 import './slide.css'
-import landing from '../../assets/landing.png'
+// import landing from '../../assets/landing.png'
 import { Slideshow } from './Slideshow'
 import useData from '../../hooks/useData'
 
@@ -34,10 +34,10 @@ const Slide = () => {
     }
   }, [entryObserver, slideVisible])
   return (
-    <>
-      <div className="slide" id="#" ref={slideRef}>
+    <div ref={slideRef}>
+      <div className="slide" id="#">
         <Slideshow />
-        <div className="slide__content container is-flex is-align-items-center">
+        {/* <div className="slide__content is-flex is-align-items-center">
           <img
             className="slide__landing-img"
             src={landing}
@@ -57,9 +57,9 @@ const Slide = () => {
               DESCARGAR
             </button>
           </div>
-        </div>
+        </div> */}
       </div>
-    </>
+    </div>
   )
 }
 export default Slide

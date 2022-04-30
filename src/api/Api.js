@@ -11,3 +11,15 @@ export async function getServices(servicio) {
     console.log(error)
   }
 }
+
+export async function getGaleria(seccion) {
+  try {
+    const url = `${API_HOST}/fotogaleria/?a=${A}&e=${E}&ub=${UB}&c=${seccion}`
+
+    const res = await fetch(url)
+    const result = await res.json()
+    return result
+  } catch (error) {
+    console.log(error)
+  }
+}
