@@ -56,7 +56,7 @@ export const Slideshow = () => {
             <br />
             right now!
           </h2>
-          <p className="slide__landing-text-subtitle is-size-3 my-6">
+          <p className="slide__landing-text-subtitle is-size-3 is-size-6-mobile my-6">
             Stock permite el registro centralizado de pedidos para todo tipo de
             distribuidora
           </p>

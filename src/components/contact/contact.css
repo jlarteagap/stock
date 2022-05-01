@@ -20,3 +20,13 @@
     font-size: 4rem;
     line-height: 1.2;
 }
+
+@media only screen and (max-width: 480px){
+    .contact__header-title{
+        font-size:2.8rem;
+        line-height: 1;
+    }
+    .contact__button{
+        font-size: 1rem !important;
+    }
+}

@@ -51,7 +51,7 @@ const Contact = () => {
         </div>
         <div className="contact__content is-flex">
           <div className="">
-            <p className="contact__content-text is-size-3">
+            <p className="contact__content-text is-size-3 is-size-6-mobile">
               Simplificando el trabajo, gestión, control de preventistas y
               cobradores así como permitir gestionar las guías de entrega de
               estos pedidos, todo en tiempo real
