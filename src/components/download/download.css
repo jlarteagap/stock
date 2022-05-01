@@ -16,3 +16,15 @@
 .how__card p{
     font-weight: bold;
 }
+
+@media only screen and (max-width: 480px) {
+    .how__cards{
+        flex-direction: column;
+    }
+    .how__card{
+        max-width: 250px;
+    }
+    .how__card img{
+        max-width: 100px;
+    }
+}
