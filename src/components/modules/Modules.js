@@ -82,12 +82,12 @@ const Modules = () => {
                   />
                 </div>
                 <div className="module__slide-content">
-                  <h3 className="module__slide-title is-size-3 has-text-weight-bold">
+                  <h3 className="module__slide-title is-size-3 is-size-5-mobile has-text-weight-bold">
                     {module.TITULO}
                   </h3>
                   <div
                     dangerouslySetInnerHTML={{ __html: module.CONTENIDO }}
-                    className="module__slide-desc has-text-weight-bold"
+                    className="module__slide-desc has-text-weight-bold is-size-7-mobile"
                   />
                 </div>
               </SplideSlide>

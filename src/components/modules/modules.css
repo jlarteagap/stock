@@ -3,7 +3,7 @@
 }
 
 .module__slide{
-    padding: 5rem;
+    padding: 0 5rem;
     gap: 1rem;
 }
 .module__slide-media, .module__slide-content{
@@ -26,4 +26,13 @@
     fill: var(--primary);
     width: 60px;
     height: 60px;
+}
+
+@media only screen and (max-width: 480px) {
+    .module__slide{
+        padding: 0;
+    }
+    .module__slide-media{
+        padding: 0;
+    }
 }
