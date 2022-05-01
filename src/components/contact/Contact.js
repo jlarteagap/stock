@@ -42,9 +42,11 @@ const Contact = () => {
   return (
     <div className="contact" id="contacto" ref={contactRef}>
       <div className="container">
-        <div className="contact__header">
+        <div className="contact__header mb-5">
           <h2 className="contact__header-title has-text-weight-bold">
-            ¡Stockeate right now!
+            ¡Stockeate
+            <br />
+            right now!
           </h2>
         </div>
         <div className="contact__content is-flex">

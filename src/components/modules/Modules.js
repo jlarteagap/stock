@@ -1,10 +1,15 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import './modules.css'
 import { Splide, SplideSlide } from '@splidejs/react-splide'
 import { getServices } from '../../api/Api'
-
+import useData from '../../hooks/useData'
 const Modules = () => {
+  const { updateModules, menuObserver } = useData()
   const [modules, setModules] = useState([])
+  const [moduleVisible, setModuleVisible] = useState('')
+  const [entryObserver, setEntryObserver] = useState(false)
+
+  const ModulesRef = useRef()
 
   useEffect(() => {
     ;(async () => {
@@ -17,6 +22,30 @@ const Modules = () => {
     })()
   }, [])
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      entries => {
+        const entry = entries[0]
+        setEntryObserver(entry.isIntersecting)
+        if (entryObserver) {
+          setModuleVisible('#modulos')
+        }
+      },
+      {
+        rootMargin: '0px 0px 0px',
+        root: null,
+        threshold: 0.5
+      }
+    )
+    observer.observe(ModulesRef.current)
+  }, [entryObserver])
+
+  useEffect(() => {
+    if (entryObserver) {
+      menuObserver(moduleVisible)
+    }
+  }, [entryObserver, moduleVisible])
+
   const options = {
     arrows: true,
     rewind: true,
@@ -27,9 +56,16 @@ const Modules = () => {
     perMove: 1,
     type: 'loop'
   }
+
+  useEffect(() => {
+    if (modules.length > 0) {
+      updateModules()
+    }
+  }, [modules])
+
   return (
-    <>
-      <div className="modules container">
+    <div ref={ModulesRef}>
+      <div className="modules container" id="modulos">
         <Splide options={options}>
           {modules.map(module => {
             return (
@@ -39,6 +75,7 @@ const Modules = () => {
               >
                 <div className="module__slide-media">
                   <img
+                    loading="lazy"
                     className="module__slide-img"
                     src={module.IMAGENES[0].URL}
                     alt={module.IMAGENES[0].ID_ARCHIVO}
@@ -58,7 +95,7 @@ const Modules = () => {
           })}
         </Splide>
       </div>
-    </>
+    </div>
   )
 }
 export default Modules

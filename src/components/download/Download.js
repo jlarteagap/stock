@@ -9,7 +9,6 @@ const Download = () => {
   const [downloadVisible, setDownloadVisible] = useState('')
   const [entryObserver, setEntryObserver] = useState(false)
 
-  // eslint-disable-next-line no-unused-vars
   const [download, setDownload] = useState([])
 
   useEffect(() => {

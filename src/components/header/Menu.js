@@ -2,7 +2,7 @@ import React from 'react'
 import useData from '../../hooks/useData'
 
 export const Menu = () => {
-  const { menuActive, downloadContext } = useData()
+  const { menuActive, downloadContext, modulesContext } = useData()
 
   return (
     <div className="header__menu navbar-menu">
@@ -24,6 +24,16 @@ export const Menu = () => {
             href="#descargar"
           >
             Descarga App
+          </a>
+        )}
+        {modulesContext && (
+          <a
+            className={`header__menu-item navbar-item has-text-weight-bold ${
+              menuActive === '#modulos' && 'isActive'
+            }`}
+            href="#modulos"
+          >
+            Módulos
           </a>
         )}
         <a

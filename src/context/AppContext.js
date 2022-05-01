@@ -10,6 +10,7 @@ export function AppProvider({ children }) {
   const [company, setCompany] = useState([])
   const [menuActive, setMenuActive] = useState('#')
   const [downloadContext, setDownloadContext] = useState(false)
+  const [modulesContext, setModulesContext] = useState(false)
 
   const menuObserver = menu => {
     setMenuActive(menu)
@@ -17,6 +18,10 @@ export function AppProvider({ children }) {
   const updateDownload = () => {
     setDownloadContext(!downloadContext)
   }
+  const updateModules = () => {
+    setModulesContext(!modulesContext)
+  }
+
   useEffect(() => {
     const url = `${API_HOST}/empresa/?a=${A}&e=${E}&ub=${UB}`
     fetch(url)
@@ -29,7 +34,9 @@ export function AppProvider({ children }) {
     menuActive,
     menuObserver,
     downloadContext,
-    updateDownload
+    modulesContext,
+    updateDownload,
+    updateModules
   }
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>
