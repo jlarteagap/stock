@@ -16,10 +16,10 @@ export function AppProvider({ children }) {
     setMenuActive(menu)
   }
   const updateDownload = () => {
-    setDownloadContext(!downloadContext)
+    setDownloadContext(true)
   }
   const updateModules = () => {
-    setModulesContext(!modulesContext)
+    setModulesContext(true)
   }
 
   useEffect(() => {

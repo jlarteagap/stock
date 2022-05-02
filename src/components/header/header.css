@@ -8,6 +8,7 @@
     background-color: transparent !important;
     color: var(--secondary) !important;
 }
+
 .header__menu-item:hover{
     background-color: transparent !important;
 }
@@ -19,6 +20,7 @@
     color: white !important;
     transition: all .3s;
 }
+
 .header__navbar a:hover{
     color: var(--primary) !important;
 }
@@ -29,6 +31,22 @@
     background-color: white;
     box-shadow: 0px 5px 14px -6px rgba(0,0,0,0.75);
 }
+
+.header__burger{
+    color: var(--primary) !important;
+}
+.header__burger-w{
+    color: white !important;
+}
+.header__burger:hover{
+    background: transparent !important;
+}
 /* .header__menu-item{
     color: white;
 } */
+
+@media only screen and (max-width: 768px) {
+    .header__navbar a{
+        color: #383838 !important;
+    }
+}

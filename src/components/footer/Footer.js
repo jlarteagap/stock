@@ -7,7 +7,7 @@ const Footer = () => {
     <div className="footer">
       <div className="container">
         <div className="footer__social is-flex is-justify-content-center my-5 py-5">
-          <SocialIcon size={24} />
+          <SocialIcon size={32} />
         </div>
         <div className="footer__copy is-flex is-justify-content-center has-text-weight-bold">
           {date.getFullYear()} Stock. Todos los derechos reservados

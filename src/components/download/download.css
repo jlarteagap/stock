@@ -16,7 +16,19 @@
 .how__card p{
     font-weight: bold;
 }
-
+@media only screen and (max-width: 768px){
+    .how__cards{
+        max-width: 300px;
+        align-items: flex-start;
+    }
+    .how__card img{
+        max-width: 150px;
+    }
+    .how__card p{
+        font-size: .9rem;
+        /* font-weight: normal; */
+    }
+}
 @media only screen and (max-width: 480px) {
     .how__cards{
         flex-direction: column;

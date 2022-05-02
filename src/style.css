@@ -7,7 +7,9 @@
 body{
     color: var(--text);
 }
-
+.social{
+    gap: .65rem;
+}
 .modal__card{
     background: white;
 }
