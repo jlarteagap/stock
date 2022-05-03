@@ -39,7 +39,13 @@ const Header = () => {
               }}
             />
           </div>
-          <Menu isActive={isActive} menuSize={menuSize} />
+          <Menu
+            isActive={isActive}
+            menuSize={menuSize}
+            onClick={() => {
+              setIsActive(!isActive)
+            }}
+          />
         </div>
       </nav>
     </div>

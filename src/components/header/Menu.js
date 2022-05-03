@@ -1,17 +1,16 @@
 import React from 'react'
 import useData from '../../hooks/useData'
 
-export const Menu = ({ isActive, menuSize }) => {
+export const Menu = ({ isActive, menuSize, onClick }) => {
   const { menuActive, downloadContext, modulesContext } = useData()
 
   return (
     <div className={`header__menu navbar-menu ${isActive && 'is-active'}`}>
       <div className="navbar-start">
         <a
+          onClick={onClick}
           href="#"
-          className={`${
-            menuSize ? 'header__menu-item-w' : 'header__menu-item'
-          } navbar-item has-text-weight-bold ${
+          className={`header__menu-item navbar-item has-text-weight-bold ${
             menuActive === '#' && 'isActive'
           }`}
         >
@@ -20,6 +19,7 @@ export const Menu = ({ isActive, menuSize }) => {
 
         {downloadContext && (
           <a
+            onClick={onClick}
             className={`header__menu-item navbar-item has-text-weight-bold ${
               menuActive === '#descargar' && 'isActive'
             }`}
@@ -30,6 +30,7 @@ export const Menu = ({ isActive, menuSize }) => {
         )}
         {modulesContext && (
           <a
+            onClick={onClick}
             className={`header__menu-item navbar-item has-text-weight-bold ${
               menuActive === '#modulos' && 'isActive'
             }`}
@@ -39,6 +40,7 @@ export const Menu = ({ isActive, menuSize }) => {
           </a>
         )}
         <a
+          onClick={onClick}
           className={`header__menu-item navbar-item has-text-weight-bold ${
             menuActive === '#contacto' && 'isActive'
           }`}
