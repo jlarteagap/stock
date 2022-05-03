@@ -60,9 +60,12 @@ export const Slideshow = () => {
             Stock permite el registro centralizado de pedidos para todo tipo de
             distribuidora
           </p>
-          <button className="slide__button button is-rounded is-large">
+          <a
+            className="slide__button button is-rounded is-large"
+            href="#descargar"
+          >
             DESCARGAR
-          </button>
+          </a>
         </div>
       </div>
     </>

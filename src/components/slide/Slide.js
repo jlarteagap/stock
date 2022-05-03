@@ -1,6 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react'
 import './slide.css'
-// import landing from '../../assets/landing.png'
 import { Slideshow } from './Slideshow'
 import useData from '../../hooks/useData'
 
