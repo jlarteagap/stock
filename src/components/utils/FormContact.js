@@ -14,13 +14,13 @@ export const FormContact = ({ toggleModal }) => {
     nombre: Yup.string().required('Su nombre es requerido'),
     email: Yup.string()
       .email('El correo no válido')
-      .required('Su nombre es requerido'),
+      .required('Su correo electronico es requerido'),
     mensaje: Yup.string()
       .min(
         6,
-        'Su mensaje es demasioado corto, intente enviar ampliar su mensaje'
+        'Su mensaje es demasiado corto, intente enviar ampliar su mensaje'
       )
-      .required('Es su mensaje es importante')
+      .required('Necesitamos un mensaje de su parte.')
   })
   return (
     <Formik
