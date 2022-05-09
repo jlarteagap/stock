@@ -4,6 +4,7 @@ import { getGaleria } from '../../api/Api'
 import '@splidejs/react-splide/css'
 import landing from '../../assets/landing.png'
 import useData from '../../hooks/useData'
+import { Download } from './DownloadApp'
 
 export const Slideshow = () => {
   const { company } = useData()
@@ -62,12 +63,7 @@ export const Slideshow = () => {
             dangerouslySetInnerHTML={{ __html: company.descripcion }}
             className="slide__landing-text-subtitle is-size-3 is-size-6-mobile my-6"
           />
-          <a
-            className="slide__button button is-rounded is-large"
-            href={company.apps}
-          >
-            DESCARGAR
-          </a>
+          <Download />
         </div>
       </div>
     </>
