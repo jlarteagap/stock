@@ -3,8 +3,10 @@ import { Splide, SplideSlide } from '@splidejs/react-splide'
 import { getGaleria } from '../../api/Api'
 import '@splidejs/react-splide/css'
 import landing from '../../assets/landing.png'
+import useData from '../../hooks/useData'
 
 export const Slideshow = () => {
+  const { company } = useData()
   const [slides, setSlides] = useState([])
 
   const options = {
@@ -56,13 +58,13 @@ export const Slideshow = () => {
             <br />
             right now!
           </h2>
-          <p className="slide__landing-text-subtitle is-size-3 is-size-6-mobile my-6">
-            Stock permite el registro centralizado de pedidos para todo tipo de
-            distribuidora
-          </p>
+          <div
+            dangerouslySetInnerHTML={{ __html: company.descripcion }}
+            className="slide__landing-text-subtitle is-size-3 is-size-6-mobile my-6"
+          />
           <a
             className="slide__button button is-rounded is-large"
-            href="#descargar"
+            href={company.apps}
           >
             DESCARGAR
           </a>
