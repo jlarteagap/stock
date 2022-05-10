@@ -3,6 +3,7 @@
     contain: content;
     position: relative;
     color: white;
+    height: 100vh;
 
 }
 .slide__content{

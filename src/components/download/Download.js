@@ -53,7 +53,7 @@ const Download = () => {
   }, [download])
 
   return (
-    <div ref={downloadRef}>
+    <div ref={downloadRef} className={download === '' && 'is-hidden'}>
       {download.length > 0 && (
         <div className="download" id="descargar">
           <div className="container">
