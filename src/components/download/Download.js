@@ -33,8 +33,8 @@ const Download = () => {
       },
       {
         rootMargin: '0px 0px 0px',
-        root: null,
-        threshold: 0.5
+        root: document.querySelector('#descargar'),
+        threshold: 1
       }
     )
     observer.observe(downloadRef.current)
@@ -53,7 +53,7 @@ const Download = () => {
   }, [download])
 
   return (
-    <div ref={downloadRef} className={download === '' && 'is-hidden'}>
+    <div ref={downloadRef} className={`${download ? '' : 'is-hidden'}`}>
       {download.length > 0 && (
         <div className="download" id="descargar">
           <div className="container">
