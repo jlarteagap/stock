@@ -57,7 +57,7 @@ export const Slideshow = () => {
           <h2 className="slide__landing-text-title has-text-weight-bold">
             ¡Stockeate
             <br />
-            right now!
+            ahora!
           </h2>
           <div
             dangerouslySetInnerHTML={{ __html: company.descripcion }}

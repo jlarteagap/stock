@@ -46,7 +46,7 @@ const Contact = () => {
           <h2 className="contact__header-title has-text-weight-bold">
             ¡Stockeate
             <br />
-            right now!
+            ahora!
           </h2>
         </div>
         <div className="contact__content is-flex">
