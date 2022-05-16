@@ -34,7 +34,7 @@ const Modules = () => {
       {
         rootMargin: '0px 0px 0px',
         root: null,
-        threshold: 0.5
+        threshold: 1
       }
     )
     observer.observe(ModulesRef.current)
