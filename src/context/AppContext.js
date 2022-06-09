@@ -11,7 +11,11 @@ export function AppProvider({ children }) {
   const [menuActive, setMenuActive] = useState('#')
   const [downloadContext, setDownloadContext] = useState(false)
   const [modulesContext, setModulesContext] = useState(false)
+  const [splash, setSplash] = useState(true)
 
+  setTimeout(() => {
+    setSplash(false)
+  }, 3000)
   const menuObserver = menu => {
     setMenuActive(menu)
   }
@@ -33,6 +37,7 @@ export function AppProvider({ children }) {
     company,
     menuActive,
     menuObserver,
+    splash,
     downloadContext,
     modulesContext,
     updateDownload,
