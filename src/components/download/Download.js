@@ -1,13 +1,10 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './download.css'
 import { getServices } from '../../api/Api'
 
 import useData from '../../hooks/useData'
 const Download = () => {
-  const { menuObserver, updateDownload } = useData()
-  const downloadRef = useRef()
-  const [downloadVisible, setDownloadVisible] = useState('')
-  const [entryObserver, setEntryObserver] = useState(false)
+  const { updateDownload } = useData()
 
   const [download, setDownload] = useState([])
 
@@ -23,37 +20,13 @@ const Download = () => {
   }, [])
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      entries => {
-        const entry = entries[0]
-        setEntryObserver(entry.isIntersecting)
-        if (entryObserver) {
-          setDownloadVisible('#descargar')
-        }
-      },
-      {
-        rootMargin: '0px 0px 0px',
-        root: document.querySelector('#descargar'),
-        threshold: 1
-      }
-    )
-    observer.observe(downloadRef.current)
-  }, [entryObserver])
-
-  useEffect(() => {
-    if (entryObserver) {
-      menuObserver(downloadVisible)
-    }
-  }, [entryObserver, downloadVisible])
-
-  useEffect(() => {
     if (download.length > 0) {
       updateDownload()
     }
   }, [download])
 
   return (
-    <div ref={downloadRef} className={`${download ? '' : 'is-hidden'}`}>
+    <div className={`${download ? '' : 'is-hidden'}`}>
       {download.length > 0 && (
         <div className="download" id="descargar">
           <div className="container">

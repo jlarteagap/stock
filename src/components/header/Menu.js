@@ -1,53 +1,61 @@
 import React from 'react'
 import useData from '../../hooks/useData'
-
-export const Menu = ({ isActive, menuSize, onClick }) => {
-  const { menuActive, downloadContext, modulesContext } = useData()
+import { Link } from 'react-scroll'
+export const Menu = ({ isActive, onClick }) => {
+  const { downloadContext, modulesContext } = useData()
 
   return (
     <div className={`header__menu navbar-menu ${isActive && 'is-active'}`}>
       <div className="navbar-start">
-        <a
+        <Link
+          className={`header__menu-item navbar-item has-text-weight-bold`}
+          to="home"
+          spy={true}
+          offset={-50}
+          smooth={true}
+          duration={500}
           onClick={onClick}
-          href="#"
-          className={`header__menu-item navbar-item has-text-weight-bold ${
-            menuActive === '#' && 'isActive'
-          }`}
         >
           Home
-        </a>
+        </Link>
 
         {downloadContext && (
-          <a
+          <Link
+            className={`header__menu-item navbar-item has-text-weight-bold`}
+            to="descargar"
+            spy={true}
+            offset={-50}
+            smooth={true}
+            duration={500}
             onClick={onClick}
-            className={`header__menu-item navbar-item has-text-weight-bold ${
-              menuActive === '#descargar' && 'isActive'
-            }`}
-            href="#descargar"
           >
-            Descarga App
-          </a>
+            Descargar
+          </Link>
         )}
         {modulesContext && (
-          <a
+          <Link
+            className={`header__menu-item navbar-item has-text-weight-bold`}
+            to="modulos"
+            spy={true}
+            offset={-50}
+            smooth={true}
+            duration={500}
             onClick={onClick}
-            className={`header__menu-item navbar-item has-text-weight-bold ${
-              menuActive === '#modulos' && 'isActive'
-            }`}
-            href="#modulos"
           >
             Módulos
-          </a>
+          </Link>
         )}
-        <a
+        <Link
+          className={`header__menu-item navbar-item has-text-weight-bold`}
+          to="contacto"
+          spy={true}
+          offset={-50}
+          smooth={true}
+          duration={500}
           onClick={onClick}
-          className={`header__menu-item navbar-item has-text-weight-bold ${
-            menuActive === '#contacto' && 'isActive'
-          }`}
-          href="#contacto"
         >
           Contacto
-        </a>
+        </Link>
       </div>
     </div>
   )

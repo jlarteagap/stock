@@ -8,7 +8,7 @@ export const AppContext = createContext({
 
 export function AppProvider({ children }) {
   const [company, setCompany] = useState([])
-  const [menuActive, setMenuActive] = useState('#')
+
   const [downloadContext, setDownloadContext] = useState(false)
   const [modulesContext, setModulesContext] = useState(false)
   const [splash, setSplash] = useState(true)
@@ -16,9 +16,7 @@ export function AppProvider({ children }) {
   setTimeout(() => {
     setSplash(false)
   }, 3000)
-  const menuObserver = menu => {
-    setMenuActive(menu)
-  }
+
   const updateDownload = () => {
     setDownloadContext(true)
   }
@@ -35,8 +33,6 @@ export function AppProvider({ children }) {
 
   const value = {
     company,
-    menuActive,
-    menuObserver,
     splash,
     downloadContext,
     modulesContext,

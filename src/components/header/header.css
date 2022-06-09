@@ -24,7 +24,7 @@
 .header__navbar a:hover{
     color: var(--primary) !important;
 }
-.header__menu-item + .isActive, .header__navbar-white + .isActive, .header__navbar .isActive{
+.header__menu-item + .active, .header__navbar-white + .active, .header__navbar .active{
     color: var(--primary) !important;
 }
 .header__navbar-white{
@@ -41,9 +41,7 @@
 .header__burger:hover{
     background: transparent !important;
 }
-/* .header__menu-item{
-    color: white;
-} */
+
 
 @media only screen and (max-width: 768px) {
     .header__navbar a{
